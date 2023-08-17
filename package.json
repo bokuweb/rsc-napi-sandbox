@@ -6,7 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "artifacts": "napi artifacts",
+    "build:napi": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "universal": "napi universal"
+  },
+  "napi": {
+    "name": "napi",
+    "triples": {
+      "defaults": false,
+      "additional": [
+        "aarch64-apple-darwin"
+      ]
+    }
   },
   "dependencies": {
     "@types/node": "20.4.6",
@@ -18,5 +33,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
-  }
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.16.3",
+    "ava": "^5.1.1"
+  },
+  "packageManager": "yarn@3.6.1"
 }

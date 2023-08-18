@@ -1,7 +1,8 @@
 import styles from "./page.module.css";
 
-import { sum } from "../../index";
+import { asyncSum } from "../../";
 
-export default function Home() {
-  return <main className={styles.main}>Hello!!{sum(1, 2)}</main>;
+export default async function Home() {
+  const result = await asyncSum(1, 2);
+  return <main className={styles.main}>Result: {result}</main>;
 }
